@@ -1,1 +1,10 @@
-<p>todo-card works!</p>
+<div class="card mb-3">
+
+  <div class="card-body">
+    <div class="card-title">
+      <h4>{{ todo?.title }}</h4>
+    </div>
+    <p class="card-text">{{ todo?.description || 'No description provided' }}</p>
+    <p>Status: {{ todo?.done ? 'Completed' : 'Pending' }}</p>
+  </div>
+</div>

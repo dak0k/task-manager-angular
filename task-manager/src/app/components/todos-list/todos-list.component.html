@@ -1,6 +1,14 @@
 <div class="container mt-3">
   <div class="d-flex justify-content-between align-items-center">
     <h1>Todos</h1>
-    <button class="btn-circle bg-primary text-white border-0">+</button>
+    <button class="btn-circle bg-primary text-white border-0" (click)="openDialog()">+</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let todo of todos$ | async">
+        <app-todo-card  [todo]="todo"  class="col-4"></app-todo-card>
+    </ng-container>
   </div>
 </div>

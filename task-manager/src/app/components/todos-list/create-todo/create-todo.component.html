@@ -1,1 +1,29 @@
-<p>create-todo works!</p>
+<h2 mat-dialog-title> {{ data.isEdit ? 'Edit' : 'Create' }} </h2>
+
+<mat-dialog-content>
+  <form [formGroup]="createEditForm">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="createEditForm.get('title')?.hasError('required')">
+        Title is required
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <br>
+    <mat-checkbox formControlName="done">Done</mat-checkbox>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="submitForm()" [disabled]="createEditForm.invalid">
+    {{ data.isEdit ? 'Save' : 'Create' }}
+  </button>
+  <button mat-button [mat-dialog-close]>Cancel</button>
+</mat-dialog-actions>
